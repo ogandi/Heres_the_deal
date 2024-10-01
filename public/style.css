@@ -1,7 +1,32 @@
+
+
 .product-display {
-    width: 50%;
+    /* width: 50%; */
 }
 
-.body {
+body {
     background-color: mistyrose;
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* width: 70%; */
+
+}
+
+.wrapper > section {
+    /* width: 70%; */
 }
