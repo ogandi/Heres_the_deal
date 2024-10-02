@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
     <nav>
         <ul>
-            <a href="">Whats New</a>
-            <a href="">Categories</a>
+            <a href="/">Whats New</a>
             <a href="/share">Share a deal</a>
+                <select name="category" id="">
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="toys">toys</option>
+                    <option value="kitchenware">kitchenware</option>
+                    <option value="tools">tools</option>
+                </select>
+
+
+            <!-- <a href="/">Categories</a> -->
         </ul>
-        <a href="/login">Login</a>
-        <a href="">Signup</a>
+        <%if (!isLoggedIn) {%>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+        <%} else {%>
+                <a href="/posts">My posts</a>
+                <p>logged in as <%=currentUser.email%></p>
+                <form action="/logout?_method=delete" method="post">
+                    <button>Logout</button>
+                </form>
+        <%}%>
+
+
+
     </nav>
     <h1>Heres the deal</h1>
 
@@ -22,4 +43,5 @@
     <%- body %>
 
 </body>
+
 </html>

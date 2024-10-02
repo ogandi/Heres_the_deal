@@ -1,5 +1,5 @@
-<h1>Share a deal</h1>
-<form action="/shared" method="post">
+<h1>edit</h1>
+<form action="/edited/<%=productDetails.id%>?_method=put" method="post">
     <label for="">name</label>
     <input type="text" name="item_name">
 
@@ -21,12 +21,8 @@
 
     <label for="">deal link</label>
     <input type="text" name="deal_source">
-
-
-
-
     <button>Share</button>
-
-
-
+</form>
+<form action="/delete/<%=productDetails.id%>?_method=delete" method="post"> 
+    <button>delete</button>
 </form>
