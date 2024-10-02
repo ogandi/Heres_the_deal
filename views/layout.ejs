@@ -9,23 +9,11 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <a href="/">Whats New</a>
-            <a href="/share">Share a deal</a>
-                <select name="category" id="">
-                    <option value="" disabled selected>Select a category</option>
-                    <option value="toys">toys</option>
-                    <option value="kitchenware">kitchenware</option>
-                    <option value="tools">tools</option>
-                </select>
-
-
-            <!-- <a href="/">Categories</a> -->
-        </ul>
+    <div class="login-links">
         <%if (!isLoggedIn) {%>
-            <a href="/login">Login</a>
+            <a href="/login">Login</a><span> or</span> 
             <a href="/signup">Signup</a>
+    </div>        
         <%} else {%>
                 <a href="/posts">My posts</a>
                 <p>logged in as <%=currentUser.email%></p>
@@ -33,11 +21,21 @@
                     <button>Logout</button>
                 </form>
         <%}%>
-
-
-
+    <nav>
+        <ul>
+            <a href="/">Whats New</a>
+            <a href="/share">Share a deal</a>
+            <a href="">Categories</a>
+        </ul>
     </nav>
-    <h1>Heres the deal</h1>
+
+
+
+
+
+
+    
+    <h1 class="page-title">Heres the deal</h1>
 
 
     <%- body %>
