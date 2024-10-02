@@ -25,17 +25,17 @@ body {
 nav {
     display: flex;
     justify-content: center;
-    
+
 }
 
 ul {
-padding: 0px;
+    padding: 0px;
 
 }
 
-ul > a {
+ul>a {
     margin: 100px;
-    
+
 }
 
 
@@ -48,22 +48,43 @@ ul > a {
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    width: 70%;
+    width: 40%;
     margin: 0 auto;
 
 }
 
- img {
-    width: 100%;
+img {
+    width: 200px;  /* Set your desired width */
+    height: 200px; 
+    /* width: 100%; */
+    object-fit: cover;
 }
 
 section {
     width: 70%;
+    
 }
 
-.wrapper > div {
+.wrapper>div {
     width: 100%;
 }
+
+.top-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.top-line > h2 {
+    font-size: 3em;
+}
+
+.top-line > h4 {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+}
+
 
 
 /* -------------------------- */
@@ -71,8 +92,25 @@ section {
 
 /* login view ---------------------*/
 
+.login-header {
+    text-align: center;
+}
+
+.login-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+/* --------------------------------------- */
 
 
-
-
+/* edit form view -------------------------- */
+.edit-header {
+    text-align: center;
+}
+.edit-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 

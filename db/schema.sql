@@ -7,7 +7,8 @@ Create table deals (
     category TEXT,
     description TEXT,
     image TEXT,
-    deal_source TEXT
+    deal_source TEXT,
+    user_id TEXT
 );
 
 INSERT INTO deals

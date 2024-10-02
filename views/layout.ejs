@@ -11,34 +11,30 @@
 <body>
     <div class="login-links">
         <%if (!isLoggedIn) {%>
-            <a href="/login">Login</a><span> or</span> 
+            <a href="/login">Login</a><span> or</span>
             <a href="/signup">Signup</a>
-    </div>        
-        <%} else {%>
-                <a href="/posts">My posts</a>
-                <p>logged in as <%=currentUser.email%></p>
-                <form action="/logout?_method=delete" method="post">
-                    <button>Logout</button>
-                </form>
-        <%}%>
-    <nav>
-        <ul>
-            <a href="/">Whats New</a>
-            <a href="/share">Share a deal</a>
-            <a href="">Categories</a>
-        </ul>
-    </nav>
-
-
-
-
-
-
     
-    <h1 class="page-title">Heres the deal</h1>
+    <%} else {%>
+        <a href="/posts">My posts</a>
+        <p>logged in as <%=currentUser.email%>
+        </p>
+        <form action="/logout?_method=delete" method="post">
+            <button>Logout</button>
+        </form>
+        <%}%>
+    </div>
+            <nav>
+                <ul>
+                    <a href="/">Whats New</a>
+                    <a href="/share">Share a deal</a>
+                    <a href="">Categories</a>
+                </ul>
+            </nav>
+
+            <h1 class="page-title">Heres the deal</h1>
 
 
-    <%- body %>
+            <%- body %>
 
 </body>
 

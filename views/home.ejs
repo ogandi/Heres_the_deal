@@ -2,23 +2,25 @@
 
 
     <div class="wrapper">
-        <!-- <section> -->
-            <img class="product-display" src="<%=product.image%>" alt="">
-        <!-- </section> -->
-        <div>
-            <h2>
-                <%=product.item_name%>
-            </h2>
-            <h4>
-                <%=product.price%>
-            </h4>
-            <p>
-                <%=product.description%>
-            </p>
-            <p>
-                <%=product.category%>
-            </p>
-            <a href="<%=product.deal_source%>">Take me there!</a>
+        <img class="product-display" src="<%=product.image%>" alt="">
+        <div class="prod-card">
+            <div class="top-line">
+                <h2>
+                    <%=product.item_name%>
+                </h2>
+                <h4>
+                    $<%=product.price%>
+                </h4>
+            </div>
+            <div class="desc-wrapper">
+                <p>
+                    <%=product.description%>
+                </p>
+                <p>
+                    <%=product.category%>
+                </p>
+                <a href="<%=product.deal_source%>">Take me there!</a>
+            </div>
         </div>
     </div>
     <%}%>

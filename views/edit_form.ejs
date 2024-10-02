@@ -1,28 +1,37 @@
-<h1>edit</h1>
-<form action="/edited/<%=productDetails.id%>?_method=put" method="post">
-    <label for="">name</label>
-    <input type="text" name="item_name">
-
-    <label for="">price</label>
-    <input type="text" name="price">
-
-    <label for="">category</label>
-    <select name="category" id="">
-        <option value="Toys">Toys</option>
-        <option value="Tools">Tools</option>
-        <option value="Kitchenware">Kitchenware</option>
-    </select>
-    
-    <label for="">description</label>
-    <textarea name="description" id=""></textarea>
-
-    <label for="">image</label>
-    <input type="text" name="image">
-
-    <label for="">deal link</label>
-    <input type="text" name="deal_source">
-    <button>Share</button>
-</form>
-<form action="/delete/<%=productDetails.id%>?_method=delete" method="post"> 
-    <button>delete</button>
-</form>
+<h1 class="edit-header">edit</h1>
+<section class="edit-wrapper">
+    <form action="/edited/<%=productDetails.id%>?_method=put" method="post">
+        <div>
+            <label for="">name</label>
+            <input type="text" name="item_name">
+        </div>
+        <div>
+            <label for="">price</label>
+            <input type="text" name="price">
+        </div>
+        <div>
+            <label for="">category</label>
+            <select name="category" id="">
+                <option value="Toys">Toys</option>
+                <option value="Tools">Tools</option>
+                <option value="Kitchenware">Kitchenware</option>
+            </select>
+        </div>
+        <div>
+            <label for="">description</label>
+            <textarea name="description" id=""></textarea>
+        </div>
+        <div>
+            <label for="">image</label>
+            <input type="text" name="image">
+        </div>
+        <div>
+            <label for="">deal link</label>
+            <input type="text" name="deal_source">
+        </div>
+        <button>Share</button>
+    </form>
+    <form action="/delete/<%=productDetails.id%>?_method=delete" method="post">
+        <button>delete</button>
+    </form>
+</section>
