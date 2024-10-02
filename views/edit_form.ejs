@@ -1,37 +1,65 @@
 <h1 class="edit-header">edit</h1>
+
+
 <section class="edit-wrapper">
+
     <form action="/edited/<%=productDetails.id%>?_method=put" method="post">
+
         <div>
+
             <label for="">name</label>
-            <input type="text" name="item_name">
+            <input type="text" name="item_name" value="<%=productDetails.item_name%>">
+
         </div>
+
         <div>
+
             <label for="">price</label>
-            <input type="text" name="price">
+            <input type="text" name="price" value="<%=productDetails.price%>">
+
         </div>
+
         <div>
+
             <label for="">category</label>
-            <select name="category" id="">
+            <select name="category" id="" value="<%=productDetails.category%>">
                 <option value="Toys">Toys</option>
                 <option value="Tools">Tools</option>
                 <option value="Kitchenware">Kitchenware</option>
             </select>
+
         </div>
+
         <div>
+
             <label for="">description</label>
-            <textarea name="description" id=""></textarea>
+            <textarea name="description" id="" value="<%=productDetails.description%>"></textarea>
+
         </div>
+
         <div>
+
             <label for="">image</label>
-            <input type="text" name="image">
+            <input type="text" name="image" value="<%=productDetails.image%>">
+
         </div>
+
         <div>
+
             <label for="">deal link</label>
-            <input type="text" name="deal_source">
+            <input type="text" name="deal_source" value="<%=productDetails.deal_source%>">
+
         </div>
+
         <button>Share</button>
+
     </form>
+
+
     <form action="/delete/<%=productDetails.id%>?_method=delete" method="post">
+
         <button>delete</button>
+
     </form>
+
 </section>

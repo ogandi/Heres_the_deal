@@ -22,6 +22,7 @@ DELETE FROM deals WHERE id =
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email TEXT unique, 
+    username TEXT unique
     password_digest TEXT
 )
 
