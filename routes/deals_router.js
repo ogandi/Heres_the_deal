@@ -81,7 +81,7 @@ router.get('/product', (req, res) => {
 
 
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', ensureLoggedIn, (req, res) => {
     const sql = `
     SELECT * 
     FROM deals
@@ -95,7 +95,7 @@ router.get('/edit/:id', (req, res) => {
 
 })
 
-router.put('/edited/:productId', (req, res) => {
+router.put('/edited/:productId', ensureLoggedIn, (req, res) => {
     let productDetails = [
         req.body.item_name,
         req.body.price,

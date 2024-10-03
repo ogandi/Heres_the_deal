@@ -15,7 +15,7 @@
             <a href="/signup">Signup</a>
 
             <%} else {%>
-                <a href="/posts">My posts</a>
+                
                 <p>logged in as <%=currentUser.username%>
                 </p>
                 <form action="/logout?_method=delete" method="post">
@@ -38,6 +38,9 @@
                         <a href="/product?category=Tools">Tools</a>
                     </div>
                 </div>
+                <%if (isLoggedIn) {%>
+                <li><a href="/posts">My posts</a></li>
+                <%}%>
             </li>
         </ul>
     </nav>

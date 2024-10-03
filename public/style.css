@@ -10,7 +10,7 @@
 nav {
     display: flex;
     justify-content: center;
-    background-color: pink;
+    background-color: mistyrose;
     padding: 10px 0; /* Added padding for a better look */
 }
 
@@ -25,7 +25,7 @@ li {
 }
 
 a {
-    color: white; /* Link color */
+    color: black; /* Link color */
     text-decoration: none; /* Remove underline */
     padding: 10px 16px; /* Padding for links */
     display: inline-block; /* Allow padding to take effect */
@@ -34,8 +34,8 @@ a {
 
 
 .dropbtn {
-    background-color: pink; 
-    color: white; 
+    background-color: mistyrose; 
+    color: black; 
     padding: 10px 16px; 
     border: none;
     cursor: pointer;
@@ -73,6 +73,9 @@ a {
 
 .page-title {
    text-align: center;
+   padding: 20px;
+   background: linear-gradient(to bottom, mistyrose, white);
+   margin: 0px 0px 10px 0px;
 }
 
 .login-links {
@@ -162,6 +165,7 @@ img {
 
 .login-header {
     text-align: center;
+    padding: 30px;
 }
 
 .login-wrap {
