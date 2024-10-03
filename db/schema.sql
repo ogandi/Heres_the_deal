@@ -8,7 +8,8 @@ Create table deals (
     description TEXT,
     image TEXT,
     deal_source TEXT,
-    user_id TEXT
+    user_id INTEGER,
+    created_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
 INSERT INTO deals
@@ -22,11 +23,7 @@ DELETE FROM deals WHERE id =
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email TEXT unique, 
-    username TEXT unique
+    username TEXT unique,
     password_digest TEXT
 )
 
-ALTER TABLE deals ADD COLUMN user_id INTEGER;
-
-
-ALTER TABLE deals ADD COLUMNS created_at TIMESTAMP NOT NULL DEFAULT now()

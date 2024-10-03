@@ -9,20 +9,24 @@ router.get('/signup', (req, res) => {
 
 router.post('/registered', (req, res) => {
     let email = req.body.email
+    let username = req.body.username
     let plainTextPass = req.body.password
+    // const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
     saltRounds = 10
 
     bcrypt.genSalt(saltRounds, (err, salt) => {
         bcrypt.hash(plainTextPass, salt, (err, hash) => {
             const sql = `
             INSERT INTO users
-            (email, password_digest)
+            (email, username, password_digest)
             VALUES
-            ($1, $2)
+            ($1, $2, $3)
             `
-            db.query(sql, [email, hash], (err, result) => {
+            db.query(sql, [email, username, hash], (err, result) => {
                 if (err) {
-                    console.log();
+                    console.log(err);
+                        return res.redirect('/signup')
 
                 }
                 res.redirect('/login')

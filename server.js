@@ -37,7 +37,6 @@ app.use(session({
 
 app.use(setUserSession)
 
-// home sorts from most popular 
 app.use(dealRoutes)
 
 app.use(sessionRoutes)

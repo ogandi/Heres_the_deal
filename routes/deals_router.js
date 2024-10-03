@@ -6,29 +6,23 @@ const router = express.Router()
 router.get('/', (req, res) => {
     const sql = `
     SELECT *
-    FROM deals;
+    FROM deals
+    JOIN users
+    ON deals.user_id = users.id;
     `
 
     db.query(sql, (err, result) => {
         if (err) {
-        }
-
-        if (result.rows.length === 0) {
-            return res.render('home', { productDetails: [], userEmail: null })
+            console.log(err)
         }
         const productDetails = result.rows
-        const sql2 = `
-        SELECT * 
-        FROM users
-        WHERE id = $1
-        `
-        db.query(sql2, [productDetails[0].user_id], (err, result) => {
-            const userEmail = result.rows[0].email
-            console.log(userEmail);
 
+        if (result.rowCount === 0) {
+            return res.render('home', { productDetails: [] })
+        }
 
-            res.render('home', { productDetails, userEmail })
-        })
+        res.render('home', { productDetails })
+
     })
 })
 
@@ -47,7 +41,6 @@ router.post('/shared', ensureLoggedIn, (req, res) => {
         req.session.userId
     ]
 
-
     const sql = `
     INSERT INTO deals
     (item_name, price, category, description, image, deal_source, user_id)
@@ -64,6 +57,25 @@ router.post('/shared', ensureLoggedIn, (req, res) => {
     })
 
 })
+
+
+
+
+router.get('/categories', (req, res) => {
+    const sql = `
+    SELECT category 
+    FROM deals;
+    `
+    db.query(sql, (err,result) => {
+        const categoryList = result.rows
+        res.render('categories', {categoryList})
+    })
+})
+
+
+
+
+
 
 router.get('/edit/:id', (req, res) => {
     const sql = `

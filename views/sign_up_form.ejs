@@ -14,7 +14,12 @@
 
         <div>
             <label for="">Enter a valid password</label>
-            <input type="password" name="password">
+            <input type="password" name="password" id="password" required minlength="8" 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+            title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit.">
+
+
+
             <button>login</button>
         </div>
     </div>
