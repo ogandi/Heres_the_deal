@@ -13,28 +13,38 @@
         <%if (!isLoggedIn) {%>
             <a href="/login">Login</a><span> or</span>
             <a href="/signup">Signup</a>
-    
-    <%} else {%>
-        <a href="/posts">My posts</a>
-        <p>logged in as <%=currentUser.email%>
-        </p>
-        <form action="/logout?_method=delete" method="post">
-            <button>Logout</button>
-        </form>
-        <%}%>
+
+            <%} else {%>
+                <a href="/posts">My posts</a>
+                <p>logged in as <%=currentUser.username%>
+                </p>
+                <form action="/logout?_method=delete" method="post">
+                    <button>Logout</button>
+                </form>
+                <%}%>
     </div>
-            <nav>
-                <ul>
-                    <a href="/">Whats New</a>
-                    <a href="/share">Share a deal</a>
-                    <a href="/categories">Categories</a>
-                </ul>
-            </nav>
+    <nav>
+        <ul>
+            
+            <li><a href="/">Whats New</a></li>
+            <li><a href="/share">Share a deal</a></li>
+            <li>
+                <form action="/product" method="get">
+                    <select name="category" id="category-select" onchange="this.form.submit()">
+                        <option value="">Select a category</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Kitchenware">Kitchenware</option>
+                        <option value="Tools">Tools</option>
+                    </select>
+                </form>
+            </li>
+        </ul>
+    </nav>
 
-            <h1 class="page-title">Heres the deal</h1>
+    <h1 class="page-title">Heres the deal</h1>
 
 
-            <%- body %>
+    <%- body %>
 
 </body>
 

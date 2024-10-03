@@ -1,2 +1,31 @@
 <h1>Categories</h1>
 
+
+<%for (category of productByCategory) {%>
+
+<div class="wrapper">
+    <img class="product-display" src="<%=category.image%>" alt="">
+    <div class="prod-card">
+        <div class="top-line">
+            <h2>
+                <%=category.item_name%>
+            </h2>
+            <h4>
+                $<%=category.price%>
+            </h4>
+        </div>
+        <div class="desc-wrapper">
+            <p>
+                <%=category.description%>
+            </p>
+            <p>
+                <%=category.category%>
+            </p>
+            <p>
+                Posted by <%=category.username%>
+            </p>
+            <a href="<%=category.deal_source%>">Take me there!</a>
+        </div>
+    </div>
+</div>
+<%}%>

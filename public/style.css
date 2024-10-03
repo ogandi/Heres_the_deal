@@ -1,9 +1,10 @@
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 0;
 }
 
 /* LAYOUTS -------- */
+
 
 .login-links {
     display: flex;
@@ -30,40 +31,46 @@ nav {
 
 ul {
     padding: 0px;
-
+    display: flex;
+    list-style: none;
 }
 
-ul>a {
-    margin: 100px;
-
+li {
+    margin: 0px 20px;
 }
+
+
 
 
 /* -------------------------- */
 
 /* home/posts wrapper view --------  */
 
+@media (min-width: 1000px) {
+    .wrapper {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1300px) {
+    .wrapper {
+        width: 55%;
+        margin: 0 auto;
+    }
+}
 
 
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    width: 40%;
-    margin: 0 auto;
-
+    display: flex;
 }
+
 
 img {
-    width: 200px;  /* Set your desired width */
-    height: 200px; 
-    /* width: 100%; */
-    object-fit: cover;
+    width: 250px;
+    height: 250px;
 }
 
-section {
-    width: 70%;
-    
-}
 
 .wrapper>div {
     width: 100%;
@@ -75,11 +82,11 @@ section {
     padding: 0px 20px;
 }
 
-.top-line > h2 {
+.top-line>h2 {
     font-size: 3em;
 }
 
-.top-line > h4 {
+.top-line>h4 {
     display: flex;
     align-items: center;
     font-size: 2em;
@@ -108,9 +115,9 @@ section {
 .edit-header {
     text-align: center;
 }
+
 .edit-wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
 }
-

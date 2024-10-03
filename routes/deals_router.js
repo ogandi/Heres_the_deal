@@ -61,21 +61,24 @@ router.post('/shared', ensureLoggedIn, (req, res) => {
 
 
 
-router.get('/categories', (req, res) => {
+router.get('/product', (req, res) => {
+    let category = req.query.category
+    // console.log(category);
+    
     const sql = `
-    SELECT category 
-    FROM deals;
+    SELECT * 
+    FROM deals
+    JOIN users
+    ON deals.user_id = users.id
+    WHERE category = $1;
     `
-    db.query(sql, (err,result) => {
-        const categoryList = result.rows
-        res.render('categories', {categoryList})
+    db.query(sql, [category], (err,result) => {
+        const productByCategory = result.rows
+        console.log(productByCategory);
+        
+        res.render('categories', {productByCategory})
     })
 })
-
-
-
-
-
 
 router.get('/edit/:id', (req, res) => {
     const sql = `
