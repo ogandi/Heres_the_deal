@@ -1,50 +1,97 @@
 * {
     /* border: 1px solid red; */
     margin: 0;
+    box-sizing: border-box;
 }
 
 /* LAYOUTS -------- */
 
 
-.login-links {
-    display: flex;
-    justify-content: end;
-}
-
-.page-title {
-    /* margin: 0 auto; */
-    text-align: center;
-}
-
-
-body {
-    background-color: mistyrose;
-}
-
-
-
 nav {
     display: flex;
     justify-content: center;
-
+    background-color: pink;
+    padding: 10px 0; /* Added padding for a better look */
 }
 
 ul {
-    padding: 0px;
+    padding: 0;
     display: flex;
     list-style: none;
 }
 
 li {
-    margin: 0px 20px;
+    margin: 0 20px; /* Space between items */
+}
+
+a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 16px; /* Padding for links */
+    display: inline-block; /* Allow padding to take effect */
 }
 
 
 
+.dropbtn {
+    background-color: pink; 
+    color: white; 
+    padding: 10px 16px; 
+    border: none;
+    cursor: pointer;
+    text-align: left; /* Align text to the left */
+}
 
-/* -------------------------- */
+.dropdown {
+    position: relative; /* Positioning for the dropdown */
+}
 
-/* home/posts wrapper view --------  */
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: white; 
+    min-width: 160px; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    z-index: 1; 
+    margin-top: 5px; /* Space between button and dropdown */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; 
+}
+
+.dropdown-content a {
+    color: black; 
+    padding: 12px 16px; 
+    text-decoration: none; 
+    display: block; 
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; 
+}
+
+.page-title {
+   text-align: center;
+}
+
+.login-links {
+    display: flex;
+    justify-content: end;
+    background-color: mistyrose;
+    align-items: center;
+}
+
+.login-links > a {
+    color: purple;
+}
+
+.long-links > .user-post {
+    display: block;
+}
+
+/* HOME/POST VIEW ---------------- */
+
 
 @media (min-width: 1000px) {
     .wrapper {
@@ -60,17 +107,31 @@ li {
     }
 }
 
+.desc-wrapper > p {
+    padding: 20px;
+}
+
+.desc-wrapper > a {
+    display: flex;
+    justify-content: end;
+    margin: 0px 10px 10px 0px; 
+    color: purple;
+}
 
 .wrapper {
     display: flex;
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
+.prod-card {
+    border: 1px solid black;
+}
 
 img {
-    width: 250px;
-    height: 250px;
+    width: 290px;
+    height: 290px;
 }
-
 
 .wrapper>div {
     width: 100%;

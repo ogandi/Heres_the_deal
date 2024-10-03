@@ -23,20 +23,21 @@
                 </form>
                 <%}%>
     </div>
+
+
     <nav>
         <ul>
-            
             <li><a href="/">Whats New</a></li>
             <li><a href="/share">Share a deal</a></li>
-            <li>
-                <form action="/product" method="get">
-                    <select name="category" id="category-select" onchange="this.form.submit()">
-                        <option value="">Select a category</option>
-                        <option value="Toys">Toys</option>
-                        <option value="Kitchenware">Kitchenware</option>
-                        <option value="Tools">Tools</option>
-                    </select>
-                </form>
+            <li class="select-container">
+                <div class="dropdown">
+                    <button class="dropbtn">Select a category</button>
+                    <div class="dropdown-content">
+                        <a href="/product?category=Toys">Toys</a>
+                        <a href="/product?category=Kitchenware">Kitchenware</a>
+                        <a href="/product?category=Tools">Tools</a>
+                    </div>
+                </div>
             </li>
         </ul>
     </nav>

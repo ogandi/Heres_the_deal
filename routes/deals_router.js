@@ -58,9 +58,6 @@ router.post('/shared', ensureLoggedIn, (req, res) => {
 
 })
 
-
-
-
 router.get('/product', (req, res) => {
     let category = req.query.category
     // console.log(category);
@@ -79,6 +76,10 @@ router.get('/product', (req, res) => {
         res.render('categories', {productByCategory})
     })
 })
+
+
+
+
 
 router.get('/edit/:id', (req, res) => {
     const sql = `
