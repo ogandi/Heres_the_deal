@@ -4,6 +4,7 @@ const ensureLoggedIn = require('../middlewares/ensure_logged_in')
 const router = express.Router()
 
 router.get('/', (req, res) => {
+
     const sql = `
     SELECT *
     FROM deals
@@ -16,13 +17,10 @@ router.get('/', (req, res) => {
             console.log(err)
         }
         const productDetails = result.rows
-
         if (result.rowCount === 0) {
             return res.render('home', { productDetails: [] })
         }
-
         res.render('home', { productDetails })
-
     })
 })
 
@@ -31,7 +29,8 @@ router.get('/share', ensureLoggedIn, (req, res) => {
 })
 
 router.post('/shared', ensureLoggedIn, (req, res) => {
-    let formDetails = [
+
+    const formDetails = [
         req.body.item_name,
         req.body.price,
         req.body.category,
@@ -52,16 +51,14 @@ router.post('/shared', ensureLoggedIn, (req, res) => {
         if (err) {
             console.log(err);
         }
-
         res.redirect('/')
     })
-
 })
 
 router.get('/product', (req, res) => {
-    let category = req.query.category
-    // console.log(category);
-    
+
+    const category = req.query.category
+
     const sql = `
     SELECT * 
     FROM deals
@@ -69,33 +66,30 @@ router.get('/product', (req, res) => {
     ON deals.user_id = users.id
     WHERE category = $1;
     `
-    db.query(sql, [category], (err,result) => {
+
+    db.query(sql, [category], (err, result) => {
         const productByCategory = result.rows
-        console.log(productByCategory);
-        
-        res.render('categories', {productByCategory})
+        res.render('categories', { productByCategory })
     })
 })
 
-
-
-
-
 router.get('/edit/:id', ensureLoggedIn, (req, res) => {
+
     const sql = `
     SELECT * 
     FROM deals
     WHERE id = $1
     `
+
     db.query(sql, [req.params.id], (err, result) => {
         let productDetails = result.rows[0]
-
         res.render('edit_form', { productDetails })
     })
 
 })
 
 router.put('/edited/:productId', ensureLoggedIn, (req, res) => {
+
     let productDetails = [
         req.body.item_name,
         req.body.price,
@@ -116,43 +110,41 @@ router.put('/edited/:productId', ensureLoggedIn, (req, res) => {
     db.query(sql, productDetails, (err, result) => {
         if (err) {
             console.log(err);
-
         }
         res.redirect('/posts')
     })
 })
 
 router.delete('/delete/:productId', ensureLoggedIn, (req, res) => {
+
     const sql = `
     DELETE FROM deals
     WHERE id = $1 
     `
+
     db.query(sql, [req.params.productId], (err, result) => {
         if (err) {
             console.log(err);
-
         }
         res.redirect('/posts')
     })
-
 })
 
 router.get('/posts', (req, res) => {
+
     const sql = `
-    SELECT item_name, price, category, description, image, deal_source, id
+    SELECT deals.id AS deal_id, deals.item_name, deals.price, deals.category, deals.description, deals.image, deals.deal_source
     FROM deals
-    WHERE user_id = $1;
+    JOIN users 
+    ON deals.user_id = users.id
+    WHERE users.id = $1;
     `
 
     db.query(sql, [req.session.userId], (err, result) => {
         if (err) {
             console.log(err);
-
         }
         let productDetails = result.rows
-        console.log(productDetails);
-
-
         res.render('user_posts', { productDetails })
     })
 })
